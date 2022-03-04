@@ -1,2 +1,4 @@
-package com.tp2.persistence;public class ClientRepoDAO {
+package com.tp2.persistence;
+
+public class ClientRepoDAO {
 }

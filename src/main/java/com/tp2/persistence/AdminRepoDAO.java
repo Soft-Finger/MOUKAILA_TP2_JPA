@@ -1,2 +1,4 @@
-package com.tp2.persistence;public class AdminRepoDAO {
+package com.tp2.persistence;
+
+public class AdminRepoDAO implements AdminRepository {
 }

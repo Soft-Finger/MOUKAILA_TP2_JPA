@@ -9,19 +9,18 @@ import java.util.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class Client extends Users{
 
     private String adresse;
     private String type;
     private int nbMaxPret;
 
     @OneToMany(mappedBy = "client")
-    private List<PretDocument> exemplaires;
+    private List<PretDocument> pretDocuments;
 
     @OneToMany(mappedBy = "client")
     private List<Amende> amendes;
+
+    @OneToMany(mappedBy = "client")
+    private List<Exemplaire> exemplaires;
 }

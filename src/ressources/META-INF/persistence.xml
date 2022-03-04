@@ -4,6 +4,7 @@
              version="2.0">
 
     <persistence-unit name="bibliotheque">
+        <class>com.tp2.model.NewEntity</class>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <properties>

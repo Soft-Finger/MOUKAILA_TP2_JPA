@@ -1,2 +1,4 @@
-package com.tp2.persistence;public class DvdRepoDAO {
+package com.tp2.persistence;
+
+public class DvdRepoDAO {
 }

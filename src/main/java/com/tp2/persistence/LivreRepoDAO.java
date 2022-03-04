@@ -1,4 +1,4 @@
 package com.tp2.persistence;
 
-public class UsersRepoDAO {
+public class LivreRepoDAO {
 }

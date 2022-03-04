@@ -23,4 +23,17 @@ public class Exemplaire {
     @OneToMany(mappedBy = "exemplaire")
     private List<PretDocument> exemplaires;
 
+    @ManyToOne
+    private Document document;
+
+    @ManyToOne
+    private Client client;
+
+    public Client getClient () {
+        return client;
+    }
+
+    public void setClient ( Client client ) {
+        this.client = client;
+    }
 }
