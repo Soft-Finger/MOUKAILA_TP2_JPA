@@ -6,10 +6,10 @@ import java.util.*;
 
 @Entity
 @Data
-@Builder
+//@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Client extends Users{
+public class Client extends Users {
 
     private String adresse;
     private String type;

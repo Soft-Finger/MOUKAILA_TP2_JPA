@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-@Builder
+//@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Livre extends Document {

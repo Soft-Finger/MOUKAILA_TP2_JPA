@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Builder
+//@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employe extends Users {

@@ -1,4 +1,6 @@
 package com.tp2.persistence;
 
 public interface AdminRepository {
+    void createClient ();
+
 }
