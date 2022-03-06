@@ -1,4 +1,5 @@
 package com.tp2.persistence;
 
-public interface ExemplaireRepository {
+public interface ExemplaireRepository <T> {
+    void createExemplaire(T t);
 }

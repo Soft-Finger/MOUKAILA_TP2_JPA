@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-//@Builder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Admin extends Users {

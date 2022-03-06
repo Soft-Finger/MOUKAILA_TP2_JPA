@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="tp2" uuid="09a1b3eb-ca80-46ff-8f3c-34b47208bab4">
+    <data-source source="LOCAL" name="bibliotheque" uuid="c2e4320d-f73f-4dea-99de-a3badd5d4506">
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:tcp://localhost:543/default</jdbc-url>
+      <jdbc-url>jdbc:h2:tcp://localhost:9092/~/moukaila_tp2</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -19,7 +19,7 @@ public class UserService {
                 .nom( nomClient )
                 .prenom( prenomClient )
                 .build();
-        usersRepository.saveClient( (Client) users );
+        //usersRepository.saveClient( (Client) users );
     }
 
     public void createEmploye ( String nomEmploye , String prenomEmploye ) {
@@ -27,7 +27,7 @@ public class UserService {
                 .nom( nomEmploye )
                 .prenom( prenomEmploye )
                 .build();
-        usersRepository.saveEmploye( (Employe) users );
+       // usersRepository.saveEmploye( (Employe) users );
     }
 
     public void createAdmin ( String nomAdmin , String prenomAdmin ) {
@@ -35,7 +35,7 @@ public class UserService {
                 .nom( nomAdmin )
                 .prenom( prenomAdmin )
                 .build();
-        usersRepository.saveAdmin( (Admin) users );
+       // usersRepository.saveAdmin( (Admin) users );
     }
 
 }

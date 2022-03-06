@@ -6,7 +6,7 @@ import java.util.*;
 
 @Entity
 @Data
-//@Builder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Client extends Users {
@@ -23,4 +23,28 @@ public class Client extends Users {
 
     @OneToMany(mappedBy = "client")
     private List<Exemplaire> exemplaires;
+
+    public String getAdresse () {
+        return adresse;
+    }
+
+    public String getType () {
+        return type;
+    }
+
+    public int getNbMaxPret () {
+        return nbMaxPret;
+    }
+
+    public List<PretDocument> getPretDocuments () {
+        return pretDocuments;
+    }
+
+    public List<Amende> getAmendes () {
+        return amendes;
+    }
+
+    public List<Exemplaire> getExemplaires () {
+        return exemplaires;
+    }
 }
