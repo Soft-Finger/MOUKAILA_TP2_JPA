@@ -16,6 +16,8 @@ public class AmendeRepoDAO implements AmendeRepository {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist( amende );
+
+            entityManager.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -24,3 +26,5 @@ public class AmendeRepoDAO implements AmendeRepository {
         }
     }
 }
+
+

@@ -1,27 +1,35 @@
 package com.tp2.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class PretDocument {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int idPretDoc;
+
+    private Date datePret;
+    private Date dateRetour;
+    private Date dateRetourEffectif;
 
     @ManyToOne
+    @JoinColumn(name = "idUser")
     private Client client;
 
     @ManyToOne
-    private Exemplaire exemplaire;
+    @JoinColumn(name = "idDoc")
+    private Document document;
+
 }
+

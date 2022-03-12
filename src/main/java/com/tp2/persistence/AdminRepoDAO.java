@@ -9,9 +9,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
 
+import static javax.persistence.Persistence.createEntityManagerFactory;
+
 public class AdminRepoDAO implements AdminRepository {
 
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "bibliothequeTp2" );
+    private EntityManagerFactory entityManagerFactory = createEntityManagerFactory( "bibliothequeTp2" );
 
 
 

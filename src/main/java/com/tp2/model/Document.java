@@ -1,9 +1,7 @@
 package com.tp2.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,22 +10,23 @@ import java.util.List;
 
 @Entity
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Document {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private long idDocument;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long idDoc;
 
     private String titre;
     private String auteur;
     private String editeur;
+    private Date datePub;
     private String genre;
-    @OneToMany
-    private List<Exemplaire> exemplaires;
+    private boolean disponible;
+    private int dureeMaxpret;
 
-
-    private Date datePublication;
 }

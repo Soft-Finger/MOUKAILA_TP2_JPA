@@ -1,50 +1,28 @@
 package com.tp2.model;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
 @Data
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true, includeFieldNames = true)
 public class Client extends Users {
 
     private String adresse;
-    private String type;
-    private int nbMaxPret;
 
-    @OneToMany(mappedBy = "client")
-    private List<PretDocument> pretDocuments;
-
-    @OneToMany(mappedBy = "client")
+    @OneToMany(targetEntity = Amende.class, mappedBy = "client")
     private List<Amende> amendes;
 
-    @OneToMany(mappedBy = "client")
-    private List<Exemplaire> exemplaires;
+    @OneToMany(targetEntity = PretDocument.class, mappedBy = "client")
+    private List<PretDocument> pretDocuments;
 
-    public String getAdresse () {
-        return adresse;
-    }
 
-    public String getType () {
-        return type;
-    }
-
-    public int getNbMaxPret () {
-        return nbMaxPret;
-    }
-
-    public List<PretDocument> getPretDocuments () {
-        return pretDocuments;
-    }
-
-    public List<Amende> getAmendes () {
-        return amendes;
-    }
-
-    public List<Exemplaire> getExemplaires () {
-        return exemplaires;
-    }
+    /*@OneToMany(mappedBy = "client")
+    private List<Exemplaire> exemplaires;*/
 }
