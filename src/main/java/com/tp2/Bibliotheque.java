@@ -40,6 +40,10 @@ public class Bibliotheque {
         employeService.createDvd("Manipulation", "Sun White", "Hollywood", simpleDateFormat.parse("2013-11-10"), "Action", true, 7, 120);
         employeService.createDvd("L'ombre de mon ex", "pascal", "Shadow", simpleDateFormat.parse("2020-01-12"), "Intrigue", true, 7, 120);
 
+        //Recherche document par titre
+        System.out.println("Document par titre");
+        System.out.println(employeService.findByTitre("Les belles-Soeurs"));
+        System.out.println();
 
 
     }
