@@ -69,5 +69,10 @@ public class Bibliotheque {
 
         //Affichage des documents empruntés par le client (idclient=11)
         employeService.findAllPretDocument(employeService.findClientById(11));
+
+        //ENREGISTREMENT pret DOCUMENTS (document déjà en cours d'emprunt)<<<<<<<<<<<<<<<<<<<<<<
+        //échec d'emprunt
+        System.out.println();
+        employeService.createPret(new Date(), employeService.findClientById(12), employeService.findDocumentById(24));
     }
 }
