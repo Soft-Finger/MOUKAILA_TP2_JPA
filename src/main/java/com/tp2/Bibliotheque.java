@@ -57,5 +57,10 @@ public class Bibliotheque {
         System.out.println(employeService.findByCategorie("fiction" ));
         System.out.println();
 
+        //Recherche document par année de publication
+        System.out.println("Document par année de publication");
+        System.out.println(employeService.findByAnnee("2020"));
+        System.out.println();
+
     }
 }
