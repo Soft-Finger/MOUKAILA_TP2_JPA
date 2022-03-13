@@ -67,5 +67,7 @@ public class Bibliotheque {
         employeService.createPret(new Date(), employeService.findClientById(12), employeService.findDocumentById(21));
         employeService.createPret(new Date(), employeService.findClientById(11), employeService.findDocumentById(24));
 
+        //Affichage des documents empruntés par le client (idclient=11)
+        employeService.findAllPretDocument(employeService.findClientById(11));
     }
 }
