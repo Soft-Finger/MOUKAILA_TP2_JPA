@@ -62,5 +62,10 @@ public class Bibliotheque {
         System.out.println(employeService.findByAnnee("2020"));
         System.out.println();
 
+        //ENREGISTREMENT DES PRETS DE DOCUMENTS<<<<<<<<<<<<<<<<<<<<<<
+        employeService.createPret(new Date(), employeService.findClientById(11), employeService.findDocumentById(20));
+        employeService.createPret(new Date(), employeService.findClientById(12), employeService.findDocumentById(21));
+        employeService.createPret(new Date(), employeService.findClientById(11), employeService.findDocumentById(24));
+
     }
 }
