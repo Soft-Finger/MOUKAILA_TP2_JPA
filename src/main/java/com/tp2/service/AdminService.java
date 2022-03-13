@@ -1,12 +1,7 @@
 package com.tp2.service;
 
 import com.tp2.model.*;
-import com.tp2.persistence.AdminRepository;
-import com.tp2.persistence.ClientRepository;
 import com.tp2.persistence.EmployeRepository;
-import lombok.val;
-
-import java.util.List;
 
 public class AdminService {
     private EmployeRepository employeRepository;

@@ -1,11 +1,20 @@
 package com.tp2.persistence;
 
 import com.tp2.model.Cd;
+import com.tp2.model.Document;
 import com.tp2.model.Dvd;
 import com.tp2.model.Livre;
 
+import java.util.List;
+
 public interface DocumentRepository {
-    void save( Cd cd);
-    void save( Dvd dvd );
-    void save( Livre livre );
+    List<Document> findByTitre( String titre);
+
+    List<Document> findByAuteur(String auteur);
+
+    List<Document> findByAnnee(String anneePub);
+
+    List<Document> findByCategorie(String genre);
+
+    Document findDocumentById(long documentId);
 }
