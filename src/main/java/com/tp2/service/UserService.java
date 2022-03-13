@@ -1,10 +1,6 @@
 package com.tp2.service;
 
-import com.tp2.model.Admin;
-import com.tp2.model.Client;
-import com.tp2.model.Employe;
 import com.tp2.model.Users;
-import com.tp2.persistence.UsersRepository;
 
 public class UserService {
     private UsersRepository usersRepository;
