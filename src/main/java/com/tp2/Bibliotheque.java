@@ -3,6 +3,7 @@ package com.tp2;
 import com.tp2.model.Amende;
 import com.tp2.persistence.*;
 import com.tp2.service.*;
+import lombok.var;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -49,5 +50,12 @@ public class Bibliotheque {
         System.out.println("Document par auteur");
         System.out.println(employeService.findByAuteur("Michel"));
         System.out.println();
+        
+        //Recherche document par catégorie
+        System.out.println("Document par catégorie");
+        //var document = employeService.findByCategorie("fiction" );
+        System.out.println(employeService.findByCategorie("fiction" ));
+        System.out.println();
+
     }
 }
