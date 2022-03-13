@@ -36,7 +36,19 @@ public class PretDocumentRepoDAO implements PretDocumentRepository {
     @Override
     public void savePret ( PretDocument pretDoc ) {
 
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        if (disponibiliteDoc(pretDoc.getDocument())) {
+            //enregistrement du pret
+            em.persist(pretDoc);
 
+            //Mise à jour de la disponibilité du document
+            miseAJourDisponibiliteDoc(pretDoc.getDocument());
+        } else {
+            System.out.println("le Document "
+                    + pretDoc.getDocument().getTitre()
+                    + " n'est pas disponible pour un emprunt");
+        }
 
     }
 
