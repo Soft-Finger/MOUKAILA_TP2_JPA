@@ -1,45 +1,32 @@
 package com.tp2.persistence;
 
-import com.tp2.model.Amende;
-import com.tp2.model.Client;
-import com.tp2.model.Exemplaire;
-import com.tp2.model.PretDocument;
+import com.tp2.model.*;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.util.Date;
+import java.util.List;
+
+import static com.tp2.Manager.emf;
 
 public class EmployeRepoDAO implements EmployeRepository {
 
-    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory( "bibliothequeTp2" );
-
-
-    public <T> void save ( T t ) {
-        final EntityManager em = entityManagerFactory.createEntityManager();
+    @Override
+    public void save(Employe employe) {
+        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        em.persist(t);
+        em.persist(employe);
 
         em.getTransaction().commit();
         em.close();
     }
 
-    public void saveClientEmprunteur ( Date datePret , Date dateRetour , Date dateRetourEffectif , long clientId ) {
-
+    @Override
+    public List<Employe> findByName( String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public long createClientEmprunteur ( Date datePret , Date dateRetour , Date dateRetourEffectif ) {
-        return 0;
-    }
-
-    public void saveClientEmprunteur ( Date datePret , Date dateRetour , Date dateRetourEffectif ) {
-
-    }
-
-    public PretDocument createClientEmprunteur ( Date datePret , Date dateRetour , Date dateRetourEffectif, Client client, Exemplaire exemplaire ) {
-        final PretDocument pretDocument = new PretDocument(datePret, dateRetour, dateRetourEffectif, client, exemplaire);
-        save( pretDocument );
-        return pretDocument;
+    @Override
+    public Employe findById( long employeId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
