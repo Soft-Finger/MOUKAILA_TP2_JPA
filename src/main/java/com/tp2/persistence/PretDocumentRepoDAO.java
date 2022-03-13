@@ -5,6 +5,7 @@ import com.tp2.model.Document;
 import com.tp2.model.PretDocument;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import static com.tp2.Manager.emf;
 
@@ -22,6 +23,16 @@ public class PretDocumentRepoDAO implements PretDocumentRepository {
         return test;
     }
 
+    public void miseAJourDisponibiliteDoc(Document doc) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Query query = em.createQuery("UPDATE Document d SET d.disponible= :dispo " + "where d.idDoc= :id");
+        query.setParameter("dispo", false);
+        query.setParameter("id", doc.getIdDoc());
+        query.executeUpdate();
+        em.getTransaction().commit();
+        em.close();
+    }
     @Override
     public void savePret ( PretDocument pretDoc ) {
 
