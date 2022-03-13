@@ -45,6 +45,9 @@ public class Bibliotheque {
         System.out.println(employeService.findByTitre("Les belles-Soeurs"));
         System.out.println();
 
-
+        //Recherche document par auteur
+        System.out.println("Document par auteur");
+        System.out.println(employeService.findByAuteur("Michel"));
+        System.out.println();
     }
 }
