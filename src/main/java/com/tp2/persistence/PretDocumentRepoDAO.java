@@ -7,9 +7,13 @@ import com.tp2.model.PretDocument;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import java.text.SimpleDateFormat;
+
 import static com.tp2.Manager.emf;
 
 public class PretDocumentRepoDAO implements PretDocumentRepository {
+
+    public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     public boolean disponibiliteDoc( Document doc) {
         EntityManager em = emf.createEntityManager();
@@ -57,5 +61,28 @@ public class PretDocumentRepoDAO implements PretDocumentRepository {
     @Override
     public void findAllPretDocument ( Client client ) {
 
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+
+        System.out.println("Liste des livres empruntés par le client:  "
+                + client.getNom() + " " + client.getPrenom());
+        System.out.println("TITRE             AUTEUR            DATE RETOUR");
+
+        Client cl = em.find(Client.class, client.getIdUser());
+        for (PretDocument pretDoc : cl.getPretDocuments()) {
+            System.out.println(
+                    pretDoc.getDocument().getTitre()
+                    + "             "
+                    + pretDoc.getDocument().getAuteur()
+                    + "         " + simpleDateFormat.format(pretDoc.getDateRetour()));
+        }
+
+        //em.persist( cl );
+        //em.persist( client );
+        em.getTransaction().commit();
+        em.close();
+
     }
+
 }
+
