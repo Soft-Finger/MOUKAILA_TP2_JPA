@@ -11,8 +11,7 @@ import javax.persistence.Entity;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper=true, includeFieldNames=true)
+@ToString(callSuper = true)
 public class Cd extends Document{
     private int duree;
-
 }

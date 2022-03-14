@@ -31,5 +31,9 @@ public class PretDocument {
     @JoinColumn(name = "idDoc")
     private Document document;
 
+    @ManyToOne
+    @JoinColumn(name = "exemplaire_id")
+    private Exemplaire exemplaire;
+
 }
 

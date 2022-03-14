@@ -53,6 +53,7 @@ public class PretDocumentRepoDAO implements PretDocumentRepository {
                     + pretDoc.getDocument().getTitre()
                     + " n'est pas disponible pour un emprunt");
         }
+        em.persist( pretDoc );
         em.getTransaction().commit();
         em.close();
     }

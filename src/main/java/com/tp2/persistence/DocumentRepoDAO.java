@@ -16,10 +16,14 @@ public class DocumentRepoDAO implements DocumentRepository {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        final TypedQuery<Document> query = em.createQuery("select d from Document d where d.titre like :nameToSearch", Document.class);
+        final TypedQuery<Document> query = em.createQuery("" +
+                "select d from Document d " +
+                "where d.titre " +
+                "like :nameToSearch", Document.class);
         query.setParameter("nameToSearch", "%" + titre + "%");
         final List<Document> documents = query.getResultList();
 
+        //em.persist( titre );
         em.getTransaction().commit();
         em.close();
 
@@ -33,9 +37,13 @@ public class DocumentRepoDAO implements DocumentRepository {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        final TypedQuery<Document> query = em.createQuery("select d from Document d where d.auteur= :nameToSearch", Document.class);
+        final TypedQuery<Document> query = em.createQuery("" +
+                "select d " +
+                "from Document d " +
+                "where d.auteur = :nameToSearch", Document.class);
         query.setParameter("nameToSearch", aut);
         final List<Document> documents = query.getResultList();
+
 
         em.getTransaction().commit();
         em.close();

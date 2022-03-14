@@ -16,10 +16,10 @@ public class Client extends Users {
 
     private String adresse;
 
-    @OneToMany(targetEntity = Amende.class, mappedBy = "client")
+    @OneToMany(mappedBy = "client")
     private List<Amende> amendes;
 
-    @OneToMany(targetEntity = PretDocument.class, mappedBy = "client")
+    @OneToMany(mappedBy = "client")
     private List<PretDocument> pretDocuments;
 
 

@@ -21,7 +21,7 @@ public class Exemplaire {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany(mappedBy = "exemplaire")
+    @OneToMany(mappedBy = "exemplaire", fetch = FetchType.EAGER)
     private List<PretDocument> exemplaires;
 
     @ManyToOne
@@ -29,12 +29,4 @@ public class Exemplaire {
 
     @ManyToOne
     private Client client;
-
-    public Client getClient () {
-        return client;
-    }
-
-    public void setClient ( Client client ) {
-        this.client = client;
-    }
 }

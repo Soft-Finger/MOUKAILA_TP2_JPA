@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 public class EmployeService {
+    public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private ClientRepository clientRepository;
     private LivreRepository livreRepository;
     private CdRepository cdRepository;
@@ -17,7 +18,12 @@ public class EmployeService {
     private DocumentRepository documentRepository;
     private PretDocumentRepository pretDocumentRepository;
 
-    public EmployeService( ClientRepository clientRepo , LivreRepository livreRepo , CdRepository cdRepo , DvdRepository dvdRepo , DocumentRepository documentRepo , PretDocumentRepository pretDocumentRepo ) {
+    public EmployeService( ClientRepository clientRepository ,
+                           LivreRepository livreRepo ,
+                           CdRepository cdRepository ,
+                           DvdRepository dvdRepository ,
+                           DocumentRepository documentRepository ,
+                           PretDocumentRepository pretDocumentRepository ) {
         this.clientRepository = clientRepository;
         this.livreRepository = livreRepo;
         this.cdRepository = cdRepository;
@@ -35,7 +41,14 @@ public class EmployeService {
         clientRepository.saveClient(client);
     }
 
-    public void createLivre(String titre, String auteur, String editeur, Date datePub, String genre, boolean disponible, int dureeMaxpret, int nbPages) {
+    public void createLivre(String titre,
+                            String auteur,
+                            String editeur,
+                            Date datePub,
+                            String genre,
+                            boolean disponible,
+                            int dureeMaxpret,
+                            int nbPages) {
         Livre livre = Livre.builder()
                 .titre(titre)
                 .auteur(auteur)
@@ -43,13 +56,20 @@ public class EmployeService {
                 .datePub(datePub)
                 .genre(genre)
                 .disponible(disponible)
-                .dureeMaxpret(dureeMaxpret)
+                .dureeMaxPret(dureeMaxpret)
                 .nbPages(nbPages)
                 .build();
         livreRepository.saveLivre(livre);
     }
 
-    public void createCd(String titre, String auteur, String editeur, Date datePub, String genre, boolean disponible, int dureeMaxpret, int duree) {
+    public void createCd(String titre,
+                         String auteur,
+                         String editeur,
+                         Date datePub,
+                         String genre,
+                         boolean disponible,
+                         int dureeMaxpret,
+                         int duree) {
         Cd cd = Cd.builder()
                 .titre(titre)
                 .auteur(auteur)
@@ -57,13 +77,20 @@ public class EmployeService {
                 .datePub(datePub)
                 .genre(genre)
                 .disponible(disponible)
-                .dureeMaxpret(dureeMaxpret)
+                .dureeMaxPret(dureeMaxpret)
                 .duree(duree)
                 .build();
         cdRepository.saveCd(cd);
     }
 
-    public void createDvd(String titre, String auteur, String editeur, Date datePub, String genre, boolean disponible, int dureeMaxpret, int duree) {
+    public void createDvd(String titre,
+                          String auteur,
+                          String editeur,
+                          Date datePub,
+                          String genre,
+                          boolean disponible,
+                          int dureeMaxpret,
+                          int duree) {
         Dvd dvd = Dvd.builder()
                 .titre(titre)
                 .auteur(auteur)
@@ -71,7 +98,7 @@ public class EmployeService {
                 .datePub(datePub)
                 .genre(genre)
                 .disponible(disponible)
-                .dureeMaxpret(dureeMaxpret)
+                .dureeMaxPret(dureeMaxpret)
                 .duree(duree)
                 .build();
         dvdRepository.saveDvd(dvd);
@@ -103,11 +130,13 @@ public class EmployeService {
         return simpleDateFormat.parse(simpleDateFormat.format(cal.getTime()));
     }
 
-    public void createPret(Date datePret, Client client, Document document) throws ParseException {
+    public void createPret(Date datePret,
+                           Client client,
+                           Document document) throws ParseException {
         PretDocument pret = PretDocument.builder()
                 .datePret(datePret)
                 .dateRetourEffectif(null)
-                .dateRetour(CalculerDateRetour(document.getDureeMaxpret()))
+                .dateRetour(CalculerDateRetour(document.getDureeMaxPret()))
                 .client(client)
                 .document(document)
                 .build();

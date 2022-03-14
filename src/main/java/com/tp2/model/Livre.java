@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(callSuper = true, includeFieldNames = true)
+@ToString(callSuper = true)
 public class Livre extends Document {
 
     private int nbPages;
