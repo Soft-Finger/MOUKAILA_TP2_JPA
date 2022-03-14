@@ -9,6 +9,7 @@ import java.util.List;
 import static com.tp2.Manager.emf;
 
 public class DocumentRepoDAO implements DocumentRepository {
+
     //Rechercher un document par titre
     @Override
     public List<Document> findByTitre( String titre) {
@@ -23,7 +24,6 @@ public class DocumentRepoDAO implements DocumentRepository {
         query.setParameter("nameToSearch", "%" + titre + "%");
         final List<Document> documents = query.getResultList();
 
-        //em.persist( titre );
         em.getTransaction().commit();
         em.close();
 
@@ -32,7 +32,7 @@ public class DocumentRepoDAO implements DocumentRepository {
 
     //Recherche par auteur
     @Override
-    public List<Document> findByAuteur(String aut) {
+    public List<Document> findByAuteur(String auteur) {
 
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -41,25 +41,28 @@ public class DocumentRepoDAO implements DocumentRepository {
                 "select d " +
                 "from Document d " +
                 "where d.auteur = :nameToSearch", Document.class);
-        query.setParameter("nameToSearch", aut);
-        final List<Document> documents = query.getResultList();
 
+        query.setParameter("nameToSearch", auteur);
+        final List<Document> documents = query.getResultList();
 
         em.getTransaction().commit();
         em.close();
 
         return documents;
-
     }
 
     @Override
-    public List<Document> findByAnnee(String anneePub) {
+    public List<Document> findByAnnee(String anneePublication) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        final TypedQuery<Document> query = em.createQuery("select d from Document d where YEAR(d.datePub)= :year1", Document.class);
-        query.setParameter("year1", Integer.parseInt(anneePub));
-        // query.setParameter("year2",simpleDateFormat.parse(anneePub+"-12-31"));
+        final TypedQuery<Document> query = em.createQuery(
+                "select d " +
+                   "from Document d " +
+                   "where YEAR(d.datePub)= :year1", Document.class);
+
+        query.setParameter("year1", Integer.parseInt(anneePublication));
+        //query.setParameter("year2",simpleDateFormat.parse(anneePublication + "-12-31"));
 
         final List<Document> documents = query.getResultList();
 
@@ -67,7 +70,6 @@ public class DocumentRepoDAO implements DocumentRepository {
         em.close();
 
         return documents;
-
     }
 
     //Recherche par categorie
@@ -77,7 +79,11 @@ public class DocumentRepoDAO implements DocumentRepository {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        final TypedQuery<Document> query = em.createQuery("select d from Document d where d.genre= :nameToSearch", Document.class);
+        final TypedQuery<Document> query = em.createQuery(
+                "select d " +
+                   "from Document d " +
+                   "where d.genre= :nameToSearch", Document.class);
+
         query.setParameter("nameToSearch", genre);
         final List<Document> documents = query.getResultList();
 
@@ -85,7 +91,6 @@ public class DocumentRepoDAO implements DocumentRepository {
         em.close();
 
         return documents;
-
     }
 
     @Override

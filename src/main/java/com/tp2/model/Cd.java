@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
+
 public class Cd extends Document{
     private int duree;
 }

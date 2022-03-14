@@ -30,10 +30,15 @@ public class PretDocumentRepoDAO implements PretDocumentRepository {
     public void miseAJourDisponibiliteDoc(Document doc) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Query query = em.createQuery("UPDATE Document d SET d.disponible= :dispo " + "where d.idDoc= :id");
+        Query query = em.createQuery(
+                "UPDATE Document d " +
+                   "SET d.disponible = :dispo " +
+                   "where d.idDoc = :id");
         query.setParameter("dispo", false);
         query.setParameter("id", doc.getIdDoc());
         query.executeUpdate();
+
+        em.persist( doc );
         em.getTransaction().commit();
         em.close();
     }
@@ -78,8 +83,8 @@ public class PretDocumentRepoDAO implements PretDocumentRepository {
                     + "         " + simpleDateFormat.format(pretDoc.getDateRetour()));
         }
 
-        //em.persist( cl );
-        //em.persist( client );
+        em.persist( cl );
+        em.persist( client );
         em.getTransaction().commit();
         em.close();
 

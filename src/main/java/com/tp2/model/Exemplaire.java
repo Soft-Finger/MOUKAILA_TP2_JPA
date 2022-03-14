@@ -21,7 +21,7 @@ public class Exemplaire {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany(mappedBy = "exemplaire", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "exemplaire")
     private List<PretDocument> exemplaires;
 
     @ManyToOne

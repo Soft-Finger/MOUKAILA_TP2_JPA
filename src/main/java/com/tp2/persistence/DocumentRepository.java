@@ -1,10 +1,8 @@
 package com.tp2.persistence;
 
-import com.tp2.model.Cd;
 import com.tp2.model.Document;
-import com.tp2.model.Dvd;
-import com.tp2.model.Livre;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface DocumentRepository {
@@ -12,7 +10,7 @@ public interface DocumentRepository {
 
     List<Document> findByAuteur(String auteur);
 
-    List<Document> findByAnnee(String anneePub);
+    List<Document> findByAnnee(String anneePublication) throws ParseException;
 
     List<Document> findByCategorie(String genre);
 

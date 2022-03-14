@@ -13,8 +13,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
+
 public class Dvd extends Document {
-
     private int duree;
-
 }

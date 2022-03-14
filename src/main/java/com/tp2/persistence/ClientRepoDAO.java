@@ -1,9 +1,7 @@
 package com.tp2.persistence;
 
 import com.tp2.model.Client;
-
 import javax.persistence.EntityManager;
-
 import static com.tp2.Manager.emf;
 
 public class ClientRepoDAO implements ClientRepository {

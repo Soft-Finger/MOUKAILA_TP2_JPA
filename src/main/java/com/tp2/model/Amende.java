@@ -13,6 +13,7 @@ import javax.persistence.*;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Amende {
 
     @Id
@@ -24,6 +25,4 @@ public class Amende {
 
     @ManyToOne
     private Client client;
-
-
 }

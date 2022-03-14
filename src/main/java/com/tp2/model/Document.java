@@ -28,5 +28,4 @@ public class Document {
     private String genre;
     private boolean disponible;
     private int dureeMaxPret;
-
 }

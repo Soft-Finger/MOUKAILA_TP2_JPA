@@ -14,7 +14,5 @@ import javax.persistence.*;
 @ToString(callSuper = true)
 
 public class Employe extends Users {
-
     private String adresse;
-
 }
