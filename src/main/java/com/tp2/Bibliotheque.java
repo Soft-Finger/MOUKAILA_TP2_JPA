@@ -6,6 +6,7 @@ import com.tp2.service.EmployeService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Bibliotheque {
 
@@ -118,22 +119,22 @@ public class Bibliotheque {
         System.out.println();
 
         //ENREGISTREMENT DES PRETS DE DOCUMENTS<<<<<<<<<<<<<<<<<<<<<<
-       /* employeService.createPret ( new Date() , employeService.findClientById ( 11 ) ,
+        employeService.createPret ( new Date() , employeService.findClientById ( 11 ) ,
                                    employeService.findDocumentById( 20 ) );
 
         employeService.createPret ( new Date() , employeService.findClientById ( 12 ) ,
                                    employeService.findDocumentById( 21 ) );
 
         employeService.createPret ( new Date() , employeService.findClientById ( 11 ) ,
-                                   employeService.findDocumentById( 24 ) );*/
+                                   employeService.findDocumentById( 24 ) );
 
         //Affichage des documents empruntés par le client (id client=11)
-        /*employeService.findAllPretDocument( employeService.findClientById ( 11 ) );*/
+        employeService.findAllPretDocument( employeService.findClientById ( 11 ) );
 
         //ENREGISTREMENT pret DOCUMENTS (document déjà en cours d'emprunt)<<<<<<<<<<<<<<<<<<<<<<
         //échec d'emprunt
         //System.out.println();
-       /* employeService.createPret ( new Date() , employeService.findClientById ( 12 ) ,
-                                   employeService.findDocumentById( 24 ) );*/
+       employeService.createPret ( new Date() , employeService.findClientById ( 12 ) ,
+                                   employeService.findDocumentById( 24 ) );
     }
 }
